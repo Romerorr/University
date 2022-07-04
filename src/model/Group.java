@@ -52,8 +52,5 @@ public class Group {
         for (int i = 0; i<arStudent.length;i++){
             System.out.println("Студент группы: "+arStudent[i].getName()+" "+arStudent[i].getSurname());
         }
-
     }
-
-
 }
