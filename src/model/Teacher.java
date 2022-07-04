@@ -53,14 +53,14 @@ public class Teacher extends People {
 
     public void salary(int hour) {
         pay = (st * hour) * 22 + prize;
-        System.out.println("Зарплата " + getSurname() + " ставка:" + st + "*кол-во часов:" + hour + "*22 рабочих дней" + "+премия:" + prize + "=" + pay);
+        System.out.println("Pay " + getSurname() + " st:" + st + "* hour:" + hour + "*22 work day" + "+prize:" + prize + "= " + pay);
     }
 
 
     public void teacherInfo() {
-        System.out.println("Имя преподавателя: " + getName());
-        System.out.println("Фамилия преподавателя: " + getSurname());
-        System.out.println("Возраст преподавателя: " + getAge());
-        System.out.println("Адресс преподавателя: " + getAddress());
+        System.out.println("Name of teacher: " + getName());
+        System.out.println("Surname of teacher: " + getSurname());
+        System.out.println("Age of teacher: " + getAge());
+        System.out.println("Address of teacher: " + getAddress());
     }
 }
