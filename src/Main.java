@@ -13,12 +13,11 @@ public class Main {
         Student Valerka = new Student ("Валерий", "Остапов", 19, studentAddress);
         Student Nastya = new Student ("Анастасия", "Козлова", 18, studentAddress);
 
-
         Student[] students = new Student[] {Sanya, Volodya, Valerka};
 
         Group DKU = new Group ("DKU", 1, Naumov, students);
         DKU.add(Nastya);
-
+        DKU.delete(Volodya);
         DKU.groupInfo();
     }
 }
