@@ -74,9 +74,9 @@ public class Group {
     }
 
     public void groupInfo() {
-//        System.out.println ("Name of group: "+name);
-//        System.out.println ("Course: "+course);
-//        System.out.println ("Teacher of group: "+teacher.toString());
+        System.out.println ("Name of group: "+name);
+        System.out.println ("Course: "+course);
+        System.out.println ("Teacher of group: "+teacher.toString());
         for (int i = 0; i<arStudent.length;i++){
             System.out.println("Student of group: "+arStudent[i].getName()+" "+arStudent[i].getSurname());
         }
