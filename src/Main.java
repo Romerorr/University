@@ -6,7 +6,7 @@ import model.Teacher;
 public class Main {
     public static void main(String[] args) {
         Address teacherAddress = new Address ("St. Petersburg", "Sq. Vostanija", 2,8);
-        Address studentAddress = new Address ("Санкт-Петербург", "Str. Nezavisimosti", 33,12);
+        Address studentAddress = new Address ("St. Petersburg", "Str. Nezavisimosti", 33,12);
         Teacher Naumov = new Teacher("Alexey", "Naumov", 40, teacherAddress);
         Student Sanya = new Student ("Alexander", "Voronin", 19, studentAddress);
         Student Volodya = new Student ("Uladzimir", "Petrov", 19, studentAddress);
