@@ -4,8 +4,8 @@ import type.People;
 
 public class Teacher extends People {
 
-    public Teacher(String name, String surname, int age, Address address) {
-        super(name, surname, age, address);
+    public Teacher(String name, String surname, int age, String gender, Address address) {
+        super(name, surname, age, gender, address);
     }
 
     @Override
@@ -14,11 +14,9 @@ public class Teacher extends People {
     }
 
     private float pay;
-    private float st = 300;
-    private int hour;
+    private float st;
+    private int hour = 8;
     private float prize = 5000;
-
-
     public float getPay() {
         return pay;
     }
@@ -51,12 +49,10 @@ public class Teacher extends People {
         this.prize = 3.3f;
     }
 
-    public void salary(int hour) {
+    public void salary(float st) {
         pay = (st * hour) * 22 + prize;
-        System.out.println("Pay " + getSurname() + " st:" + st + "* hour:" + hour + "*22 work day" + "+prize:" + prize + "= " + pay);
+        System.out.println(getSurname() + " salary = " + pay);
     }
-
-
     public void teacherInfo() {
         System.out.println("Name of teacher: " + getName());
         System.out.println("Surname of teacher: " + getSurname());
