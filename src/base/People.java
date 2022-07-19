@@ -1,8 +1,8 @@
-package type;
+package base;
 
 import model.Address;
 
-public abstract class People {
+public abstract class People implements Comparable <People> {
     private String name;
     private String surname;
     private int age;
@@ -18,7 +18,7 @@ public abstract class People {
     }
 
     public String toString(){
-        return getName()+" "+getSurname();
+        return getSurname()+" "+getName();
     }
 
     public String getName() {
@@ -58,5 +58,14 @@ public abstract class People {
     }
     public void setAddress(Address address) {
         this.address = address;
+    }
+
+    @Override
+    public int compareTo(People people) {
+        if (this.getSurname().compareTo(people.getSurname()) == 0) {
+            return this.getName().compareTo(people.getName());
+        } else {
+            return this.getSurname().compareTo(people.getSurname());
+        }
     }
 }

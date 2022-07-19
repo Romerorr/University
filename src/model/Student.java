@@ -1,6 +1,6 @@
 package model;
 
-import type.People;
+import base.People;
 
 public class Student extends People {
 
@@ -11,6 +11,11 @@ public class Student extends People {
     }
     @Override
     public String toString () {
-        return getName() + " " + getSurname();
+        return getSurname() + " " + getName();
+    }
+
+    @Override
+    public int compareTo(People people) {
+        return 0;
     }
 }

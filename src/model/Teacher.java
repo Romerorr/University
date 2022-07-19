@@ -1,6 +1,6 @@
 package model;
 
-import type.People;
+import base.People;
 
 public class Teacher extends People {
 
@@ -10,7 +10,7 @@ public class Teacher extends People {
 
     @Override
     public String toString() {
-        return getName() + " " + getSurname();
+        return getSurname() + " " + getName();
     }
 
     private float pay;
@@ -58,5 +58,14 @@ public class Teacher extends People {
         System.out.println("Surname of teacher: " + getSurname());
         System.out.println("Age of teacher: " + getAge());
         System.out.println("Address of teacher: " + getAddress());
+    }
+
+    @Override
+    public int compareTo(People people) {
+        if (this.getSurname().compareTo(people.getSurname()) == 0) {
+            return this.getName().compareTo(people.getName());
+        } else {
+            return this.getSurname().compareTo(people.getSurname());
+        }
     }
 }

@@ -1,6 +1,8 @@
 import java.util.ArrayList;
 import java.util.List;
+import util.AgeComparator;
 
+import base.People;
 import model.*;
 import util.Converter;
 
@@ -20,60 +22,57 @@ public class Main {
         Address studentSoniaAddress = new Address("St. Petersburg", "Str. Udelnaja", 75, 4);
 
         //Teachers
-        Teacher Naumov = new Teacher("Alexey", "Naumov", 40, "M", teacherNaumovAddress);
-        Teacher Sinica = new Teacher("Ekaterina", "Sinica", 32, "F", teacherSinicaAddress);
-        Teacher Repkin = new Teacher("Boris", "Repkin", 66, "M", teacherRepkinAddress);
-        Teacher Voronina = new Teacher("Anna", "Voronina", 55, "F", teacherVoroninaAddress);
+        Teacher naumov = new Teacher("Alexey", "Naumov", 40, "M", teacherNaumovAddress);
+        Teacher sinica = new Teacher("Ekaterina", "Sinica", 32, "F", teacherSinicaAddress);
+        Teacher repkin = new Teacher("Boris", "Repkin", 66, "M", teacherRepkinAddress);
+        Teacher voronina = new Teacher("Anna", "Voronina", 55, "F", teacherVoroninaAddress);
 
-        Naumov.salary(200);
-        Sinica.salary(150);
-        Repkin.salary(350);
-        Voronina.salary(300);
+        naumov.salary(200);
+        sinica.salary(150);
+        repkin.salary(350);
+        voronina.salary(300);
 
         ArrayList <Teacher> teachers = new ArrayList<>(){{
-           add(Repkin);
-           add(Sinica);
-           add(Voronina);
+           add(repkin);
+           add(sinica);
+           add(voronina);
         }};
 
         //Mentors
         Converter <Mentor, Teacher> converter = (Teacher) -> new Mentor(Teacher.getName(), Teacher.getSurname(),
-                Teacher.getAge(), Teacher.getGender(), Teacher.getAddress());
+                Teacher.getAge(), Teacher.getGender(), Teacher.getAddress(), teachers);
 
-        Mentor mentorNaumov = converter.convert(Naumov);
+        Mentor mentorNaumov = converter.convert(naumov);
 
         List <Mentor> mentors = new ArrayList<>() {{
             add(mentorNaumov);
         }};
 
-//        List <Employee> staff = new ArrayList<Employee>();
-//        Converter <Employee, Mentor > mentorEmployeeConverter = (Mentor) -> new Employee(Mentor.getName(), Mentor.getSurname(),
-//                Mentor.getAge(), Mentor.getGender(), Mentor.getAddress());
-//        Converter <Employee, Teacher> employeeTeacherConverter = (Teacher) -> new Employee(Teacher.getName(), Teacher.getSurname(),
-//                Teacher.getAge(), Teacher.getGender(), Teacher.getAddress());
-
-
-
+        //Staff
+        ArrayList <People> staff = new ArrayList<>(){{
+            addAll(teachers);
+            addAll(mentors);
+        }};
 
         //Students
-        Student Sanya = new Student("Alexander", "Voronin", 19, "M", studentSanyaAddress);
-        Student Volodya = new Student("Uladzimir", "Petrov", 19, "M", studentVolodyaAddress);
-        Student Valerka = new Student("Valerij", "Ostapov", 19, "M", studentValerkaAddress);
-        Student Nastya = new Student("Anastasia", "Kozlova", 18, "F", studentNastyaAddress);
-        Student Sonia = new Student("Sonia", "Bigun", 18, "F", studentSoniaAddress);
+        Student sanya = new Student("Alexander", "Voronin", 19, "M", studentSanyaAddress);
+        Student volodya = new Student("Uladzimir", "Petrov", 19, "M", studentVolodyaAddress);
+        Student valerka = new Student("Valerij", "Ostapov", 19, "M", studentValerkaAddress);
+        Student nastya = new Student("Anastasia", "Kozlova", 18, "F", studentNastyaAddress);
+        Student sonia = new Student("Sonia", "Bigun", 18, "F", studentSoniaAddress);
 
         ArrayList<Student> studentsOfDKU = new ArrayList(){{
-            add(Sanya);
-            add(Volodya);
-            add(Valerka);
-            add(Nastya);
-            add(Sonia);
+            add(sanya);
+            add(volodya);
+            add(valerka);
+            add(nastya);
+            add(sonia);
         }};
 
         //Groups
-        Group DKU = new Group("DKU", 1, Naumov, studentsOfDKU,2022, 2026);
-        Group DKP = new Group("DKP", 3, Sinica, studentsOfDKU, 2019,2024);
-        Group DKF = new Group("DKF", 4, Voronina, studentsOfDKU,2018, 2022);
+        Group DKU = new Group("DKU", 1, naumov, studentsOfDKU,2022, 2026);
+        Group DKP = new Group("DKP", 3, sinica, studentsOfDKU, 2019,2024);
+        Group DKF = new Group("DKF", 4, voronina, studentsOfDKU,2018, 2022);
 
         ArrayList <Group> groups = new ArrayList<>(){{
            add(DKU);
@@ -82,7 +81,13 @@ public class Main {
         }};
 
         //Terminal
-        System.out.println("Retired");
+        System.out.println("\n"+"Staff of project");
+        AgeComparator AgeComparator = new AgeComparator();
+        staff.stream()
+                .sorted(People::compareTo)
+//                .sorted(AgeComparator)
+                .forEach(System.out::println);
+        System.out.println("\n"+"Retired");
         teachers.stream()
                 .filter(gm -> gm.getGender().contains("M"))
                 .filter(a -> a.getAge() > 60)
@@ -91,11 +96,11 @@ public class Main {
                 .filter(gf -> gf.getGender().contains("F"))
                 .filter(a -> a.getAge() >= 55)
                 .forEach(System.out::println);
-        System.out.println("Pay more then 60k");
+        System.out.println("\n"+"Pay more then 60k");
         teachers.stream()
                 .filter(p -> p.getPay() > 60000)
                 .forEach(System.out::println);
-        System.out.println("Graduation 2022-2024 groups");
+        System.out.println("\n"+"Graduation 2022-2024 groups");
         groups.stream()
                 .filter(gg -> gg.getYearOfGraduation() >= 2022 && gg.getYearOfGraduation() <= 2024)
                 .forEach(System.out::println);
