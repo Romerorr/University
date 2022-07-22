@@ -61,7 +61,7 @@ public class Main {
         Student nastya = new Student("Anastasia", "Kozlova", 18, "F", studentNastyaAddress);
         Student sonia = new Student("Sonia", "Bigun", 18, "F", studentSoniaAddress);
 
-        ArrayList<Student> studentsOfDKU = new ArrayList(){{
+        ArrayList <Student> studentsOfDKU = new ArrayList(){{
             add(sanya);
             add(volodya);
             add(valerka);
@@ -69,10 +69,12 @@ public class Main {
             add(sonia);
         }};
 
+
         //Groups
         Group DKU = new Group("DKU", 1, naumov, studentsOfDKU,2022, 2026);
         Group DKP = new Group("DKP", 3, sinica, studentsOfDKU, 2019,2024);
         Group DKF = new Group("DKF", 4, voronina, studentsOfDKU,2018, 2022);
+
 
         ArrayList <Group> groups = new ArrayList<>(){{
            add(DKU);

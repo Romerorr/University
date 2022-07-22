@@ -13,10 +13,10 @@ public class Teacher extends People {
         return getSurname() + " " + getName();
     }
 
-    private float pay;
-    private float st;
+    private int pay;
+    private int st;
     private int hour = 8;
-    private float prize = 5000;
+    private int prize = 5000;
     public float getPay() {
         return pay;
     }
@@ -45,13 +45,14 @@ public class Teacher extends People {
         return prize;
     }
 
-    public void setPrize(float prize) {
-        this.prize = 3.3f;
+    public void setPrize(int prize) {
+        this.prize = prize;
     }
 
-    public void salary(float st) {
+    public float salary(int st) {
         pay = (st * hour) * 22 + prize;
         System.out.println(getSurname() + " salary = " + pay);
+        return pay;
     }
     public void teacherInfo() {
         System.out.println("Name of teacher: " + getName());

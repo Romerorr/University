@@ -75,4 +75,12 @@ public class Group {
         System.out.println ("Teacher of group: "+teacher.toString());
         System.out.println("Students of  group: "+ arStudent.toString());
     }
+
+    public void addStudent (Student student) {
+        arStudent.add(student);
+    }
+
+    public void removeStudent (Student student) {
+        arStudent.remove(student);
+    }
 }
