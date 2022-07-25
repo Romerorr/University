@@ -1,44 +1,39 @@
 package test;
 
 import model.Address;
-import model.Group;
 import model.Student;
-import model.Teacher;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.Assert;
-
-import java.util.ArrayList;
+import repository.StudentRepository;
+import service.StudentService;
 
 public class TestForAddAndRemoveStudents {
         Address address;
         Student student;
         Student student1;
-        Teacher naumov;
-        Group group;
-
-        ArrayList<Student> students;
+        StudentRepository studentRepository;
+        StudentService studentService;
+        private int count;
         @Before
         public void setUP (){
-            address = new Address("SPb", "lalalandova", 15, 15);
+            studentRepository = new StudentRepository();
+            studentService = new StudentService(studentRepository);
             student = new Student("Paul", "Dzerhachou", 24, "m", address);
             student1 = new Student("Paul", "Dzerhachou", 24, "m", address);
-            naumov = new Teacher("Alexey", "Naumov", 40, "M", address);
-            group = new Group("PPP", 1, naumov, students, 2022, 2026);
-            students.add(student1);
+            studentRepository.addStudent(student1);
+            count = studentRepository.size();
         }
-        private int count = students.size();
-
             @Test
             public void addStudentTest() {
-                group.addStudent(student);
+                StudentService.addStudent(student);
                 ++count;
-                Assert.assertEquals (count, students.size());
+                Assert.assertEquals (count, studentRepository.size());
             }
             @Test
             public void removeStudentTest() {
-                group.removeStudent(student);
+                StudentService.removeStudent(student);
                 --count;
-                Assert.assertEquals(count, students.size()-1);
+                Assert.assertEquals(count, studentRepository.size()-1);
             }
 }

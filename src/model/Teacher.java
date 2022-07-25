@@ -7,17 +7,15 @@ public class Teacher extends People {
     public Teacher(String name, String surname, int age, String gender, Address address) {
         super(name, surname, age, gender, address);
     }
-
     @Override
     public String toString() {
         return getSurname() + " " + getName();
     }
-
-    private int pay;
-    private int st;
-    private int hour = 8;
-    private int prize = 5000;
-    public float getPay() {
+    private double pay;
+    private double st;
+    private double hour = 8;
+    private double prize = 5000;
+    public double getPay() {
         return pay;
     }
 
@@ -25,15 +23,15 @@ public class Teacher extends People {
         this.pay = pay;
     }
 
-    public float getSt() {
+    public double getSt() {
         return st;
     }
 
-    public void setSt() {
+    public void setSt(int st) {
         this.st = st;
     }
 
-    public int getHour() {
+    public double getHour() {
         return hour;
     }
 
@@ -41,24 +39,12 @@ public class Teacher extends People {
         this.hour = hour;
     }
 
-    public float getPrize() {
+    public double getPrize() {
         return prize;
     }
 
     public void setPrize(int prize) {
         this.prize = prize;
-    }
-
-    public float salary(int st) {
-        pay = (st * hour) * 22 + prize;
-        System.out.println(getSurname() + " salary = " + pay);
-        return pay;
-    }
-    public void teacherInfo() {
-        System.out.println("Name of teacher: " + getName());
-        System.out.println("Surname of teacher: " + getSurname());
-        System.out.println("Age of teacher: " + getAge());
-        System.out.println("Address of teacher: " + getAddress());
     }
 
     @Override

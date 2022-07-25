@@ -5,6 +5,7 @@ import model.Teacher;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import service.TeacherService;
 
 
 public class TeacherSalaryTest {
@@ -17,7 +18,8 @@ public class TeacherSalaryTest {
         teacher = new Teacher("Alexey", "Naumov", 40, "M", address);
     }
     @Test
-    public void salaryNotEqualsNull() {
-        Assert.assertNotEquals (5000, teacher.salary(0));
+    public void salaryNotEquals5kIfStEquals0() {
+        teacher.setSt(0);
+        Assert.assertNotEquals((double) 5000, TeacherService.salary(teacher));
     }
 }

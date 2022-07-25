@@ -21,7 +21,7 @@ public class Mentor extends People {
 
     @Override
     public String toString () {
-        return getSurname() + " " + getName();
+        return "Mentor: " + getSurname() + " " + getName();
     }
 
     @Override

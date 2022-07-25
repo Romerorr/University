@@ -1,0 +1,5 @@
+Alexander Voronin 19 M St.Petersburg Str.Nezavisimosti 33 12
+Uladzimir Petrov 19 M St.Petersburg Str.Babushkina 144 215
+Valerij Ostapov 19 M St.Petersburg Str.Baltijskaja 53 56
+Anastasia Kozlova 18 F St.Petersburg Str.Dachnaja 22 112
+Sonia Bigun 18 F St.Petersburg Str.Udelnaja 75 4
